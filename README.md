@@ -4,6 +4,8 @@
 商家、景区、赛事主办方入驻后，玩家在游戏里购买、打卡、跑赛道，
 平台把**不可转让的凭证、核销记录和订单哈希**写到 **BSN 武汉链**，多方按同一份账本对账。
 
+> **在线 Demo**：https://nanning-chain-demo-staging.up.railway.app （Railway staging，`agent/bsn-demo-v1` 分支自动部署；local 演示链模式，服务重启后数据会重置）
+>
 > 演示环境：支付全部是**模拟支付**；商家、景区、赛事都是示例数据。链上**不发币**，也不记录任何个人信息。
 
 ![首页](docs/screenshots/01-home.png)
