@@ -1,0 +1,15 @@
+{
+  "name": "@nanning/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile && node scripts/export-abi.cjs",
+    "test": "hardhat test",
+    "deploy:bsn": "hardhat run scripts/deploy.cjs --network bsnWuhan"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "4.9.6",
+    "hardhat": "^2.22.17"
+  }
+}

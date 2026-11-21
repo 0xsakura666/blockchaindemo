@@ -1,0 +1,25 @@
+{
+  "name": "nanning-blockchain-demo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "网上南宁 × BSN 武汉链 区块链凭证 demo（商家入驻 / 门票周边 / 赛事 / 景区打卡）",
+  "workspaces": [
+    "packages/contracts",
+    "packages/game-sdk",
+    "apps/server",
+    "apps/web"
+  ],
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "scripts": {
+    "compile": "npm run compile -w packages/contracts",
+    "test": "npm run test -w packages/contracts && npm run test -w apps/server",
+    "typecheck": "npm run typecheck -w packages/game-sdk && npm run typecheck -w apps/server && npm run typecheck -w apps/web",
+    "build": "npm run build -w packages/game-sdk && npm run build -w apps/web",
+    "dev:server": "npm run dev -w apps/server",
+    "dev:web": "npm run dev -w apps/web",
+    "start": "npm run start -w apps/server",
+    "deploy:bsn": "npm run deploy:bsn -w packages/contracts"
+  }
+}

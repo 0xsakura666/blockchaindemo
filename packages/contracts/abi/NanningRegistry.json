@@ -1,0 +1,409 @@
+{
+  "contractName": "NanningRegistry",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "platform",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum NanningRegistry.Kind",
+          "name": "kind",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "metaHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "MerchantRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum NanningRegistry.Status",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "name": "MerchantStatusChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "previousAdminRole",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "newAdminRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RoleAdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleGranted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleRevoked",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DEFAULT_ADMIN_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PLATFORM_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getMerchant",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "enum NanningRegistry.Status",
+              "name": "status",
+              "type": "uint8"
+            },
+            {
+              "internalType": "enum NanningRegistry.Kind",
+              "name": "kind",
+              "type": "uint8"
+            },
+            {
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "metaHash",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "updatedAt",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct NanningRegistry.Merchant",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleAdmin",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "grantRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "hasRole",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "isActive",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "merchantCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "enum NanningRegistry.Kind",
+          "name": "kind",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "metaHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "registerMerchant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "renounceRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "revokeRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "merchantId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "enum NanningRegistry.Status",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "name": "setStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161100438038061100483398101604081905261002f91610109565b61003a60003361006a565b6100647f797343f8d6a29aafeb3aaf0910a8973e0081c60c2f6c1f775cd9f76ea348fc1e8261006a565b50610139565b6000828152602081815260408083206001600160a01b038516845290915290205460ff16610105576000828152602081815260408083206001600160a01b03851684529091529020805460ff191660011790556100c43390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45b5050565b60006020828403121561011b57600080fd5b81516001600160a01b038116811461013257600080fd5b9392505050565b610ebc806101486000396000f3fe608060405234801561001057600080fd5b50600436106100cf5760003560e01c806370824c5c1161008c57806391d148541161006657806391d14854146101ca578063a217fddf146101dd578063d547741f146101e5578063e797451c146101f857600080fd5b806370824c5c1461018857806389105185146101af5780638de654ba146101b757600080fd5b806301ffc9a7146100d4578063248a9ca3146100fc5780632f2ff15d1461012d578063359b582d1461014257806336568abe146101625780635c36901c14610175575b600080fd5b6100e76100e2366004610b5b565b61020b565b60405190151581526020015b60405180910390f35b61011f61010a366004610b85565b60009081526020819052604090206001015490565b6040519081526020016100f3565b61014061013b366004610bba565b610242565b005b610155610150366004610b85565b61026c565b6040516100f39190610c1a565b610140610170366004610bba565b610353565b6100e7610183366004610b85565b6103d6565b61011f7f797343f8d6a29aafeb3aaf0910a8973e0081c60c2f6c1f775cd9f76ea348fc1e81565b60025461011f565b6101406101c5366004610c84565b610404565b6100e76101d8366004610bba565b61059d565b61011f600081565b6101406101f3366004610bba565b6105c6565b610140610206366004610cb4565b6105eb565b60006001600160e01b03198216637965db0b60e01b148061023c57506301ffc9a760e01b6001600160e01b03198316145b92915050565b60008281526020819052604090206001015461025d81610857565b6102678383610864565b505050565b61029f6040805160a081019091528060008152602001600081526000602082018190526040820181905260609091015290565b60008281526001602052604090819020815160a081019092528054829060ff1660028111156102d0576102d0610be6565b60028111156102e1576102e1610be6565b81528154602090910190610100900460ff16600281111561030457610304610be6565b600281111561031557610315610be6565b815281546201000090046001600160a01b031660208201526001820154604082015260029091015467ffffffffffffffff1660609091015292915050565b6001600160a01b03811633146103c85760405162461bcd60e51b815260206004820152602f60248201527f416363657373436f6e74726f6c3a2063616e206f6e6c792072656e6f756e636560448201526e103937b632b9903337b91039b2b63360891b60648201526084015b60405180910390fd5b6103d282826108e8565b5050565b6000600160008381526001602052604090205460ff1660028111156103fd576103fd610be6565b1492915050565b7f797343f8d6a29aafeb3aaf0910a8973e0081c60c2f6c1f775cd9f76ea348fc1e61042e81610857565b60008381526001602052604081205460ff16600281111561045157610451610be6565b0361049e5760405162461bcd60e51b815260206004820152601a60248201527f52656769737472793a20756e6b6e6f776e206d65726368616e7400000000000060448201526064016103bf565b60008260028111156104b2576104b2610be6565b036104ff5760405162461bcd60e51b815260206004820152601860248201527f52656769737472793a20696e76616c696420737461747573000000000000000060448201526064016103bf565b60008381526001602081905260409091208054849260ff199091169083600281111561052d5761052d610be6565b021790555060008381526001602052604090819020600201805467ffffffffffffffff19164267ffffffffffffffff161790555183907f62a4b659d5b66819c5b5a00e18102c6889b2292a982d5f80bfe6b975ae5f2fa990610590908590610cfa565b60405180910390a2505050565b6000918252602082815260408084206001600160a01b0393909316845291905290205460ff1690565b6000828152602081905260409020600101546105e181610857565b61026783836108e8565b7f797343f8d6a29aafeb3aaf0910a8973e0081c60c2f6c1f775cd9f76ea348fc1e61061581610857565b846106575760405162461bcd60e51b8152602060048201526012602482015271149959da5cdd1c9e4e88195b5c1d1e481a5960721b60448201526064016103bf565b60008581526001602052604081205460ff16600281111561067a5761067a610be6565b146106c75760405162461bcd60e51b815260206004820152601c60248201527f52656769737472793a20616c726561647920726567697374657265640000000060448201526064016103bf565b6040805160a0810190915280600181526020018560028111156106ec576106ec610be6565b8152602001846001600160a01b031681526020018381526020014267ffffffffffffffff168152506001600087815260200190815260200160002060008201518160000160006101000a81548160ff0219169083600281111561075157610751610be6565b021790555060208201518154829061ff00191661010083600281111561077957610779610be6565b0217905550604082810151825462010000600160b01b031916620100006001600160a01b039092169190910217825560608301516001808401919091556080909301516002928301805467ffffffffffffffff191667ffffffffffffffff909216919091179055815492830182556000919091527f405787fa12a823e0f2b7631cc41b3ba8828b3321ca811111fa75cd3aa3bb5ace9091018690555185907f4a026eb662b752d487b215e268797f3e6c34bc9896d739859686c822b00dfd6c9061084890879087908790610d0d565b60405180910390a25050505050565b610861813361094d565b50565b61086e828261059d565b6103d2576000828152602081815260408083206001600160a01b03851684529091529020805460ff191660011790556108a43390565b6001600160a01b0316816001600160a01b0316837f2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d60405160405180910390a45050565b6108f2828261059d565b156103d2576000828152602081815260408083206001600160a01b0385168085529252808320805460ff1916905551339285917ff6391f5c32d9c69d2a47ea670b442974b53935d1edc7fd64eb21e047a839171b9190a45050565b610957828261059d565b6103d257610964816109a6565b61096f8360206109b8565b604051602001610980929190610d5b565b60408051601f198184030181529082905262461bcd60e51b82526103bf91600401610dd0565b606061023c6001600160a01b03831660145b606060006109c7836002610e19565b6109d2906002610e30565b67ffffffffffffffff8111156109ea576109ea610e43565b6040519080825280601f01601f191660200182016040528015610a14576020820181803683370190505b509050600360fc1b81600081518110610a2f57610a2f610e59565b60200101906001600160f81b031916908160001a905350600f60fb1b81600181518110610a5e57610a5e610e59565b60200101906001600160f81b031916908160001a9053506000610a82846002610e19565b610a8d906001610e30565b90505b6001811115610b05576f181899199a1a9b1b9c1cb0b131b232b360811b85600f1660108110610ac157610ac1610e59565b1a60f81b828281518110610ad757610ad7610e59565b60200101906001600160f81b031916908160001a90535060049490941c93610afe81610e6f565b9050610a90565b508315610b545760405162461bcd60e51b815260206004820181905260248201527f537472696e67733a20686578206c656e67746820696e73756666696369656e7460448201526064016103bf565b9392505050565b600060208284031215610b6d57600080fd5b81356001600160e01b031981168114610b5457600080fd5b600060208284031215610b9757600080fd5b5035919050565b80356001600160a01b0381168114610bb557600080fd5b919050565b60008060408385031215610bcd57600080fd5b82359150610bdd60208401610b9e565b90509250929050565b634e487b7160e01b600052602160045260246000fd5b6003811061086157634e487b7160e01b600052602160045260246000fd5b815160a0820190610c2a81610bfc565b82526020830151610c3a81610bfc565b60208301526040838101516001600160a01b0316908301526060808401519083015260809283015167ffffffffffffffff16929091019190915290565b6003811061086157600080fd5b60008060408385031215610c9757600080fd5b823591506020830135610ca981610c77565b809150509250929050565b60008060008060808587031215610cca57600080fd5b843593506020850135610cdc81610c77565b9250610cea60408601610b9e565b9396929550929360600135925050565b60208101610d0783610bfc565b91905290565b60608101610d1a85610bfc565b9381526001600160a01b0392909216602083015260409091015290565b60005b83811015610d52578181015183820152602001610d3a565b50506000910152565b7f416363657373436f6e74726f6c3a206163636f756e7420000000000000000000815260008351610d93816017850160208801610d37565b7001034b99036b4b9b9b4b733903937b6329607d1b6017918401918201528351610dc4816028840160208801610d37565b01602801949350505050565b6020815260008251806020840152610def816040850160208701610d37565b601f01601f19169190910160400192915050565b634e487b7160e01b600052601160045260246000fd5b808202811582820484141761023c5761023c610e03565b8082018082111561023c5761023c610e03565b634e487b7160e01b600052604160045260246000fd5b634e487b7160e01b600052603260045260246000fd5b600081610e7e57610e7e610e03565b50600019019056fea2646970667358221220ea8f62c41872294fecccbae3c92ca76b9bbf4cc2102bf3edf512bf990611a43d64736f6c63430008130033",
+  "compiler": "solc 0.8.19 / evm london"
+}

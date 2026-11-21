@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+@utility card { @apply bg-white rounded-2xl border border-slate-200 shadow-sm; }
+@utility btn { @apply whitespace-nowrap inline-flex items-center justify-center gap-1 rounded-lg px-3 py-1.5 text-sm font-medium transition disabled:opacity-50 disabled:cursor-not-allowed; }
+@utility btn-primary { @apply btn bg-gradient-to-r from-pink-600 to-violet-600 text-white hover:opacity-90; }
+@utility btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+@utility btn-dark { @apply btn bg-slate-900 text-white hover:bg-slate-700; }
+@utility input { @apply w-full rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-violet-400; }
+@utility label { @apply text-xs font-medium text-slate-500; }
+@utility mono { @apply font-mono text-xs break-all; }

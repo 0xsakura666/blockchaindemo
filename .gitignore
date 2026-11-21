@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+packages/contracts/cache/
+packages/contracts/artifacts/
+packages/contracts/typechain-types/
+apps/server/data/
+*.log
+.DS_Store

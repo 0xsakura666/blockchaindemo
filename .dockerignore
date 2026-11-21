@@ -1,0 +1,7 @@
+node_modules
+**/node_modules
+apps/web/dist
+packages/contracts/cache
+packages/contracts/artifacts
+apps/server/data
+.git
